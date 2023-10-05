@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSocket Example</title>
+  </head>
+  <body>
+    <h1>WebSocket Example</h1>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Enter a message" />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+      const socket = new WebSocket("ws://62.113.96.69/api/websocket/v1");
+
+      socket.addEventListener("open", (event) => {
+        console.log("Сокет-з'єднання відкрито:", event);
+      });
+
+      socket.addEventListener("message", (event) => {
+        console.log(
+          "Отримано повідомлення від сервера:",
+          JSON.parse(event.data)
+        );
+      });
+
+      socket.addEventListener("close", (event) => {
+        if (event.wasClean) {
+          console.log("Сокет-з'єднання закрито коректно", event);
+        } else {
+          console.error("Помилка під час закриття сокет-з'єднання", event);
+        }
+      });
+
+      socket.addEventListener("error", (event) => {
+        console.error("Помилка сокет-з'єднання:", event);
+      });
+    </script>
+  </body>
+</html>

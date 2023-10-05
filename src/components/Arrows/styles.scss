@@ -1,0 +1,34 @@
+.arrows {
+  display: block;
+  color: var(--primary-color);
+  position: fixed;
+  z-index: 10;
+
+  &__left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__top {
+    left: 50%;
+    top: var(--header-height);
+    transform: translateX(-50%);
+  }
+
+  &__bottom {
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &__icon {
+    font-size: 35px;
+  }
+}

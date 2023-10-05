@@ -1,0 +1,32 @@
+.branch {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--primary-color);
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__value {
+    max-width: 130px;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    font-size: 20px;
+    color: var(--secondary-color);
+
+    &--remove {
+      color: var(--red-color);
+    }
+  }
+}

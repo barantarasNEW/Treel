@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Main from "./components/Main";
+import Header from "./components/Header";
+import { useApp } from "./hooks/useApp";
+import { TreeContext } from "./context";
+import "./styles/normalize.scss";
 
-function App() {
+const App = (): JSX.Element => {
+  const {
+    translateX,
+    translateY,
+    zoomLevel,
+    setTranslateX,
+    setTranslateY,
+    setZoomLevel,
+  } = useApp();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TreeContext.Provider
+      value={{
+        translateX,
+        translateY,
+        zoomLevel,
+        setZoomLevel,
+        setTranslateX,
+        setTranslateY,
+      }}
+    >
+      <div className="container">
+        <Header />
+
+        <Main />
+      </div>
+    </TreeContext.Provider>
   );
-}
+};
 
 export default App;
